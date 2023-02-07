@@ -5,7 +5,7 @@ public class SimplePersonDto {
 
     private String lastName;
 
-    private int id;
+    private Long id;
 
     public SimplePersonDto(String firstName, String lastName) {
         this.firstName = firstName;
@@ -32,11 +32,11 @@ public class SimplePersonDto {
         this.lastName = lastName;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

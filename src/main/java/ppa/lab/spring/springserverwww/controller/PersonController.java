@@ -12,6 +12,10 @@ import ppa.lab.spring.springserverwww.service.api.SimplePersonService;
 public class PersonController {
     private SimplePersonService simplePersonService;
 
+    public PersonController(SimplePersonService simplePersonService) {
+        this.simplePersonService = simplePersonService;
+    }
+
     @GetMapping("/{firstName}/{lastName}")
     public SimplePersonDto person(
             @RequestParam("firstName") String firstName

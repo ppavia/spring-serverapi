@@ -6,6 +6,8 @@ import ppa.lab.spring.springserverwww.model.repository.SimplePersonRepository;
 import ppa.lab.spring.springserverwww.service.api.SimplePersonService;
 import ppa.spring.domain.bean.SimplePerson;
 
+import java.util.Optional;
+
 @Service
 public class DefautlSimplePersonService implements SimplePersonService {
     private SimplePersonRepository simplePersonRepository;
@@ -14,15 +16,17 @@ public class DefautlSimplePersonService implements SimplePersonService {
         this.simplePersonRepository = simplePersonRepository;
     }
 
-    @Override public SimplePersonDto getSimplePerson(Long id) {
+    @Override public Optional<SimplePersonDto> getSimplePerson(Long id) {
 
-        SimplePerson simplePerson = simplePersonRepository.findBy(id);
-
-        return mapSimplePerson(simplePerson);
+        Optional<SimplePerson> simplePerson = simplePersonRepository.findById(id);
+        if(simplePerson.isPresent()) {
+            return Optional.of(mapSimplePerson(simplePerson.get()));
+        }
+        return Optional.empty();
     }
 
     @Override public SimplePersonDto getSimplePerson(String firstName, String lastName) {
-        SimplePerson simplePerson = simplePersonRepository.findBy(firstName, lastName);
+        SimplePerson simplePerson = simplePersonRepository.findByFirstNameAndLastName(firstName, lastName);
 
         return mapSimplePerson(simplePerson);
     }

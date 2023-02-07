@@ -4,9 +4,12 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import ppa.spring.domain.bean.SimplePerson;
 
-@Repository
-public interface SimplePersonRepository extends JpaRepository<Long, SimplePerson> {
-    SimplePerson findBy(Long id);
+import java.util.Optional;
 
-    SimplePerson findBy(String firstName, String lastName);
+@Repository
+public interface SimplePersonRepository extends JpaRepository<SimplePerson, Long> {
+
+    Optional<SimplePerson> findById(Long id);
+
+    SimplePerson findByFirstNameAndLastName(String firstName, String lastName);
 }
