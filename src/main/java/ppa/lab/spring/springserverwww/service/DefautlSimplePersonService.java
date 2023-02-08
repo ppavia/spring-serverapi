@@ -1,6 +1,7 @@
 package ppa.lab.spring.springserverwww.service;
 
 import org.springframework.stereotype.Service;
+import ppa.lab.spring.springserverwww.exception.ServiceException;
 import ppa.lab.spring.springserverwww.model.dto.SimplePersonDto;
 import ppa.lab.spring.springserverwww.model.repository.SimplePersonRepository;
 import ppa.lab.spring.springserverwww.service.api.SimplePersonService;
@@ -25,8 +26,11 @@ public class DefautlSimplePersonService implements SimplePersonService {
         return Optional.empty();
     }
 
-    @Override public SimplePersonDto getSimplePerson(String firstName, String lastName) {
+    @Override public SimplePersonDto getSimplePerson(String firstName, String lastName) throws ServiceException {
         SimplePerson simplePerson = simplePersonRepository.findByFirstNameAndLastName(firstName, lastName);
+        if(simplePerson == null) {
+            throw new ServiceException(String.format("la personne [%s,%s] n'a pas été trouvée.", firstName, lastName));
+        }
 
         return mapSimplePerson(simplePerson);
     }

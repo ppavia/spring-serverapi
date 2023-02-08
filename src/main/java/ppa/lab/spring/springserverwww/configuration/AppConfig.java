@@ -1,6 +1,5 @@
 package ppa.lab.spring.springserverwww.configuration;
 
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -9,7 +8,8 @@ import ppa.spring.domain.bean.SimplePerson;
 
 @Configuration
 @EnableJpaRepositories({"ppa.lab.spring.springserverwww.model.repository"})
-@Import({ SimplePerson.class })
+@Import({ SimplePerson.class
+        , DatasourceProxyConfig.class})
 @ComponentScan(basePackages = {
         "ppa.lab.spring.springserverwww.model.repository"
         , "ppa.lab.spring.springserverwww.service"
