@@ -1,10 +1,13 @@
 package ppa.lab.spring.springserverwww.exception;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+import ppa.lab.spring.springserverwww.model.dto.RestErrorResponse;
 
 import java.time.LocalDateTime;
 
@@ -12,14 +15,30 @@ import java.time.LocalDateTime;
 public class RestResponseEntityExceptionHandler<T> extends ResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = { RestException.class })
-    protected ResponseEntity<RestResponseBean<T>> handleHttpException (RestException ex, WebRequest request) {
-        RestResponseBean<T> exceptionBean = new RestResponseBean<T>(
-                LocalDateTime.now(),
-                ex.getMessage(),
-                request.getDescription(false),
-                ex.getHttpStatus().getReasonPhrase()
-
-        );
+    protected ResponseEntity<RestErrorResponse> handleHttpException (RestException ex, WebRequest request) {
+        RestErrorResponse exceptionBean = buildErrorResponse(ex, request);
         return new ResponseEntity<>(exceptionBean, ex.getHttpStatus());
+    }
+
+    private RestErrorResponse buildErrorResponse(RestException ex, WebRequest request) {
+        ServletWebRequest servletWebRequest = null;
+        if (request instanceof ServletWebRequest) {
+            servletWebRequest = (ServletWebRequest) request;
+           return new RestErrorResponse(
+                    LocalDateTime.now(),
+                    Integer.toString(ex.getHttpStatus().value()),
+                    ex.getMessage(),
+                    ex.getHttpStatus().getReasonPhrase(),
+                    servletWebRequest.getRequest().getRequestURI()
+            );
+        }
+        else {
+            return new RestErrorResponse(
+                    LocalDateTime.now(),
+                    HttpStatus.NOT_ACCEPTABLE.name(),
+                    ex.getMessage(),
+                    ex.getHttpStatus().getReasonPhrase(),
+                    servletWebRequest.getContextPath());
+        }
     }
 }

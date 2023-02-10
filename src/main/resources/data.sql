@@ -3,3 +3,4 @@ INSERT INTO SIMPLEPERSON (id, firstName, lastName) VALUES (2, 'Adrien', 'Vergnau
 INSERT INTO SIMPLEPERSON (id, firstName, lastName) VALUES (3, 'Basile', 'Bouduris');
 INSERT INTO SIMPLEPERSON (id, firstName, lastName) VALUES (4, 'Eugénie', 'Grandet');
 INSERT INTO SIMPLEPERSON (id, firstName, lastName) VALUES (5, 'Ophélie', 'Winter');
+INSERT INTO SIMPLEPERSON (id, firstName, lastName) VALUES (6, 'Basile', 'Boli');

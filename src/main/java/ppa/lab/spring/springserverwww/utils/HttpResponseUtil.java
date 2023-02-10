@@ -3,32 +3,33 @@ package ppa.lab.spring.springserverwww.utils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import ppa.lab.spring.springserverwww.exception.RestResponseBean;
+import ppa.lab.spring.springserverwww.model.dto.RestResponse;
 
 import java.time.LocalDateTime;
 
 public class HttpResponseUtil {
 
-    public static <T> ResponseEntity<T> buildUTF8Response(T response) {
+    public static <T> ResponseEntity<T> buildRestResponse(T response) {
         return ResponseEntity.ok()
-                .headers(setContentTypeJsonUTF8(new HttpHeaders()))
+                .headers(setContentTypeJson(new HttpHeaders()))
                 .body(response);
     }
 
-    public static <T> ResponseEntity<RestResponseBean<T>> buildUTF8ResponseBean(T response, String msg, String location, String reason) {
-        RestResponseBean responseBean = new RestResponseBean(
+    public static <T> ResponseEntity<RestResponse<T>> buildRestResponse(T response, String msg, String location, String reason) {
+        RestResponse responseBean = new RestResponse(
                 LocalDateTime.now()
                 , msg
                 , location
                 , reason
                 , response);
         return ResponseEntity.ok()
-                .headers(setContentTypeJsonUTF8(new HttpHeaders()))
+                .headers(setContentTypeJson(new HttpHeaders()))
                 .body(responseBean);
     }
 
-    public static HttpHeaders setContentTypeJsonUTF8(HttpHeaders responseHeaders) {
-        responseHeaders.set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON + "; charset=UTF-8");
+    public static HttpHeaders setContentTypeJson(HttpHeaders responseHeaders) {
+        responseHeaders.set(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
+        responseHeaders.set(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON_VALUE);
         return responseHeaders;
     }
 
