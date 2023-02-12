@@ -1,4 +1,4 @@
-package ppa.lab.spring.springserverwww.model.dto;
+package ppa.lab.spring.springserverapi.model.dto;
 
 public class SimplePersonDto {
     private String firstName;

@@ -41,8 +41,8 @@
         <appender-ref ref="Console" />
     </root>
 
-    <!-- LOG "ppa.lab.spring.springserverwww*" at TRACE level -->
-    <logger name="ppa.lab.spring.springserverwww" level="trace" additivity="false">
+    <!-- LOG "ppa.lab.spring.springserverapi*" at TRACE level -->
+    <logger name="ppa.lab.spring.springserverapi" level="trace" additivity="false">
         <appender-ref ref="RollingFile" />
         <appender-ref ref="Console" />
     </logger>

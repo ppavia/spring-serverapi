@@ -1,4 +1,4 @@
-package ppa.lab.spring.springserverwww.controller;
+package ppa.lab.spring.springserverapi.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ppa.lab.spring.springserverwww.exception.RestException;
-import ppa.lab.spring.springserverwww.exception.ServiceException;
-import ppa.lab.spring.springserverwww.model.dto.RestResponse;
-import ppa.lab.spring.springserverwww.model.dto.SimplePersonDto;
-import ppa.lab.spring.springserverwww.service.api.SimplePersonService;
-import ppa.lab.spring.springserverwww.utils.HttpResponseUtil;
+import ppa.lab.spring.springserverapi.exception.RestException;
+import ppa.lab.spring.springserverapi.exception.ServiceException;
+import ppa.lab.spring.springserverapi.model.dto.RestResponse;
+import ppa.lab.spring.springserverapi.model.dto.SimplePersonDto;
+import ppa.lab.spring.springserverapi.service.api.SimplePersonService;
+import ppa.lab.spring.springserverapi.utils.HttpResponseUtil;
 
 import java.util.List;
 

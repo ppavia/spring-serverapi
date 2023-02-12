@@ -1,7 +1,7 @@
-package ppa.lab.spring.springserverwww.service.api;
+package ppa.lab.spring.springserverapi.service.api;
 
-import ppa.lab.spring.springserverwww.exception.ServiceException;
-import ppa.lab.spring.springserverwww.model.dto.SimplePersonDto;
+import ppa.lab.spring.springserverapi.exception.ServiceException;
+import ppa.lab.spring.springserverapi.model.dto.SimplePersonDto;
 
 import java.util.List;
 import java.util.Optional;

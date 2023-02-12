@@ -1,4 +1,4 @@
-package ppa.lab.spring.springserverwww.model.mock;
+package ppa.lab.spring.springserverapi.model.mock;
 
 import ppa.spring.domain.bean.SimplePerson;
 

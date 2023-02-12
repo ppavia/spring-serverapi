@@ -1,4 +1,4 @@
-package ppa.lab.spring.springserverwww.exception;
+package ppa.lab.spring.springserverapi.exception;
 
 import org.springframework.http.HttpStatus;
 

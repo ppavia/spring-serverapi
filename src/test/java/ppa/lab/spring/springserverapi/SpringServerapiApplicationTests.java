@@ -1,9 +1,9 @@
-package ppa.lab.spring.springserverwww;
+package ppa.lab.spring.springserverapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest class SpringServerwwwApplicationTests {
+@SpringBootTest class SpringServerapiApplicationTests {
 
     @Test void contextLoads() {
     }

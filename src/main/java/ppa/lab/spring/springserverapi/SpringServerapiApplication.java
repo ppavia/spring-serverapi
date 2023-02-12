@@ -1,19 +1,18 @@
-package ppa.lab.spring.springserverwww;
+package ppa.lab.spring.springserverapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Import;
-import ppa.lab.spring.springserverwww.configuration.AppConfig;
-import ppa.spring.domain.bean.SimplePerson;
+import ppa.lab.spring.springserverapi.configuration.AppConfig;
 
 @SpringBootApplication
 @EntityScan(basePackages = {"ppa.spring.domain.bean"})
 @Import({ AppConfig.class })
-public class SpringServerwwwApplication {
+public class SpringServerapiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringServerwwwApplication.class, args);
+        SpringApplication.run(SpringServerapiApplication.class, args);
     }
 
 }

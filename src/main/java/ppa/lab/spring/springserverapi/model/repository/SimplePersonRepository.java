@@ -1,4 +1,4 @@
-package ppa.lab.spring.springserverwww.model.repository;
+package ppa.lab.spring.springserverapi.model.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

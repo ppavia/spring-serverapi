@@ -1,4 +1,4 @@
-package ppa.lab.spring.springserverwww.exception;
+package ppa.lab.spring.springserverapi.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import ppa.lab.spring.springserverwww.model.dto.RestErrorResponse;
+import ppa.lab.spring.springserverapi.model.dto.RestErrorResponse;
 
 import java.time.LocalDateTime;
 
