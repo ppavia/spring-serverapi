@@ -13,12 +13,6 @@ import ppa.lab.spring.springserverapi.security.handler.KeycloakLogoutHandler;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    private final KeycloakLogoutHandler keycloakLogoutHandler;
-
-    SecurityConfig(KeycloakLogoutHandler keycloakLogoutHandler) {
-        this.keycloakLogoutHandler = keycloakLogoutHandler;
-    }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
@@ -29,7 +23,7 @@ public class SecurityConfig {
         http.oauth2Login()
                 .and()
                 .logout()
-                .addLogoutHandler(keycloakLogoutHandler)
+                .addLogoutHandler(keycloakLogoutHandler(restTemplate()))
                 .logoutSuccessUrl("/");
         http.oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt);
         return http.build();
